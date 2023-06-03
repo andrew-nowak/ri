@@ -1,7 +1,13 @@
-<nav>
-	<a href="/">guardian recipes index</a>
-	|
-	<a href="/tags">tags</a>
+<nav style="display: flex; justify-content: space-between;">
+	<span>
+		<a href="/">guardian recipes index</a>
+		|
+		<a href="/tags">tags</a>
+	</span>
+	<form action="/search" method="get">
+		<input type="text" name="q" id="q" autocomplete="off" placeholder="search" required />
+		<input type="submit" value="🕵️" />
+	</form>
 </nav>
 <main>
 	<slot />
