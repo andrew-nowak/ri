@@ -1,16 +1,21 @@
 <script lang="ts">
+	import type { Recipe } from '../../../types';
+	import RecipeList from '../../components/RecipeList.svelte';
 	import { capikey } from '../../stores/capikey';
 
 	export let data: import('./$types').PageData;
 	$: q = data.q;
 
 	$: query = !$capikey
-		? undefined
+		? Promise.resolve()
 		: fetch(
-				`https://content.guardianapis.com/search?tag=tone%2Frecipes&q=${q}&api-key=${$capikey}&page-size=50`
+				`https://content.guardianapis.com/search?tag=tone%2Frecipes&q=${q}&api-key=${$capikey}&page-size=50&show-fields=headline`
 		  )
 				.then((resp) => resp.json())
-				.then((blob) => blob.response.results);
+				.then((blob) => blob.response.results as Recipe[])
+				.then((fullRecipes) =>
+					fullRecipes.map((full) => ({ id: full.id, headline: full.fields.headline, tags: [] }))
+				);
 
 	function setcapikey() {
 		const newValue = (document.getElementById('capikey') as HTMLInputElement).value;
@@ -29,11 +34,7 @@
 		<p>loading</p>
 	{:then results}
 		{#if results && results.length}
-			<ol>
-				{#each results as { webUrl, webTitle }}
-					<li><a target="_blank" href={webUrl}>{webTitle}</a></li>
-				{/each}
-			</ol>
+			<RecipeList recipes={results} />
 		{:else}
 			<p>oops!</p>
 			<p>no results; sorry! try a different search</p>

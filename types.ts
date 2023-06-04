@@ -7,6 +7,7 @@ export type Tag = {
 
 export type Recipe = {
 	id: string;
+	webUrl: string;
 	fields: { headline: string };
 	tags: Tag[];
 };
