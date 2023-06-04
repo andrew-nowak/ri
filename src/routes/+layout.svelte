@@ -3,6 +3,8 @@
 		<a href="/">guardian recipes index</a>
 		|
 		<a href="/tags">tags</a>
+		|
+		<a href="/favs">favs</a>
 	</span>
 	<form action="/search" method="get">
 		<input type="text" name="q" id="q" autocomplete="off" placeholder="search" required />

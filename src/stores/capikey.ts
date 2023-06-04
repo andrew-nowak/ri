@@ -1,13 +1,14 @@
 import { writable } from 'svelte/store';
 
-const initial = localStorage.getItem('gurecipes-capikey');
+const STORAGE_KEY = 'gurecipes-capikey';
+const initial = localStorage.getItem(STORAGE_KEY);
 
 export const capikey = writable(initial);
 
 capikey.subscribe((value) => {
 	if (value) {
-		localStorage.setItem('gurecipes-capikey', value);
+		localStorage.setItem(STORAGE_KEY, value);
 	} else {
-		localStorage.removeItem('gurecipes-capikey');
+		localStorage.removeItem(STORAGE_KEY);
 	}
 });
