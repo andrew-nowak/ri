@@ -15,3 +15,7 @@ export const load: PageLoad = async function load({ params }) {
 		recipes: taggedrecipes
 	};
 };
+
+export function entries() {
+	return tags.map((tag) => ({ tag: tag.id }));
+}
