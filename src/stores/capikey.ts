@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-const STORAGE_KEY = 'gurecipes-capikey';
+const STORAGE_KEY = 'guri-capikey';
 const initial = localStorage.getItem(STORAGE_KEY);
 
 export const capikey = writable(initial);

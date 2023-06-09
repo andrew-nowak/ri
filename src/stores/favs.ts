@@ -4,7 +4,7 @@ import type { SlimRecipe } from '../../types';
 import recipedump from '../recdump.json?raw';
 
 const recipes = JSON.parse(recipedump) as SlimRecipe[];
-const STORAGE_KEY = 'gurecipes-favs';
+const STORAGE_KEY = 'guri-favs';
 const initial = localStorage.getItem(STORAGE_KEY);
 
 const serialise = (recipes: SlimRecipe[]) => recipes.map((rec) => rec.id).join(',');
