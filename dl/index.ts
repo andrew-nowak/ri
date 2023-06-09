@@ -59,8 +59,8 @@ const main = async () => {
 		tags: rawRecipe.tags.map((t) => taglookup[t.id])
 	}));
 
-	writeFileSync('tagdump.json', JSON.stringify(tagstore), { flag: 'w' });
-	writeFileSync('recdump.json', JSON.stringify(recipedump), { flag: 'w' });
+	writeFileSync('../src/tagdump.json', JSON.stringify(tagstore), { flag: 'w' });
+	writeFileSync('../src/recdump.json', JSON.stringify(recipedump), { flag: 'w' });
 	if (!failing) {
 		console.log('done; exiting byee!');
 	} else {
