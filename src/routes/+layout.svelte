@@ -1,12 +1,16 @@
+<script lang="ts">
+	import { base } from '$app/paths';
+</script>
+
 <nav style="display: flex; justify-content: space-between;">
 	<span>
-		<a href="/">guardian recipes index</a>
+		<a href="{base}/">guardian recipes index</a>
 		|
-		<a href="/tags">tags</a>
+		<a href="{base}/tags">tags</a>
 		|
-		<a href="/favs">favs</a>
+		<a href="{base}/favs">favs</a>
 	</span>
-	<form action="/search" method="get">
+	<form action="{base}/search" method="get">
 		<input type="text" name="q" id="q" autocomplete="off" placeholder="search" required />
 		<input type="submit" value="🕵️" />
 	</form>

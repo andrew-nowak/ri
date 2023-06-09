@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { base } from '$app/paths';
+
 	export let data: import('./$types').PageData;
 
 	let selectedData = data.data;
@@ -39,7 +41,7 @@
 					↣ (G)
 				</a>
 				|
-				<a rel="noreferrer" href="/tags/{id}" style="flex-shrink: 1;">
+				<a rel="noreferrer" href="{base}/tags/{id}" style="flex-shrink: 1;">
 					{count}: {webTitle} ::: {id}
 				</a>
 			</span>
