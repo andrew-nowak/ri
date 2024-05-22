@@ -20,8 +20,8 @@ const main = async () => {
 	const recipes: Recipe[] = [];
 	while (pageno >= 1) {
 		await sleep();
-		const url = `https://content.guardianapis.com/search?tag=tone%2Frecipes&api-key=${apikey}&page-size=50&page=${pageno}&show-tags=all&show-fields=headline`;
-		const resp = await fetch(url);
+		const url = `https://content.guardianapis.com/search?tag=tone%2Frecipes&page-size=50&page=${pageno}&show-tags=all&show-fields=headline`;
+		const resp = await fetch(url + `&api-key=${apikey}`);
 		const respj = await resp.json();
 		if (respj.response.status !== 'ok') {
 			console.log(`capi query ${url} failed saying status ${respj.response.status}`);
